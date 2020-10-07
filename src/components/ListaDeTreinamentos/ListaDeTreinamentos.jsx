@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CursoPreview from "../TreinamentoPreview";
+import TreinamentoPreview from "../TreinamentoPreview";
 import "./style.css";
 
 class ListaDeTreinamentos extends Component {
@@ -8,8 +8,8 @@ class ListaDeTreinamentos extends Component {
       <section id="lista-de-cursos">
         <h2>Treinamentos</h2>
         <ul> 
-          {["Testes de Unidade", "Cypress"].map((c, index)=> (
-            <CursoPreview nome={c} key={index}/>
+          {[{id: 1, nome: "Testes de Unidade"}, { id: 2, nome: "Cypress"}].map((treinamento, index)=> (
+            <TreinamentoPreview treinamento={treinamento} key={index}/>
           ))}
         </ul>
       </section>

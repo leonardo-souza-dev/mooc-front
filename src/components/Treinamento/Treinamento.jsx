@@ -2,10 +2,19 @@ import React, { Component } from "react";
 import "./style.css";
 
 class Treinamento extends Component {
+  componentWillMount() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', this.props.url, true);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.responseText);
+        this.setState({ data: data });
+    };
+    xhr.send();
+}
 
   render() {
     return (
-      <section id="treinamento">
+      <section id="treinamento" style={this.props.show ? show : hide}>
         <h1>Teste de Unidade</h1>
         <div>
           <ul>
@@ -25,6 +34,13 @@ class Treinamento extends Component {
       </section>
     );
   }
+}
+
+const show = {
+  display: "block"
+}
+const hide = {
+  display: "none"
 }
 
 export default Treinamento;
