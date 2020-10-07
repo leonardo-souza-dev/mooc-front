@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import CursoPreview from "../CursoPreview";
+import CursoPreview from "../TreinamentoPreview";
 import "./style.css";
 
-class Cursos extends Component {
+class ListaDeTreinamentos extends Component {
   render() {
     return (
-      <>
-        <h2>Cursos</h2>
+      <section id="lista-de-cursos">
+        <h2>Treinamentos</h2>
         <ul> 
           {["Testes de Unidade", "Cypress"].map((c, index)=> (
             <CursoPreview nome={c} key={index}/>
           ))}
         </ul>
-      </>
+      </section>
     );
   }
 }
 
-export default Cursos;
+export default ListaDeTreinamentos;

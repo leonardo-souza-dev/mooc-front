@@ -5,14 +5,14 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header_div">
+      <header className="header_div">
         <h1>mooc</h1>
         <ul>
-          <li>cursos</li>
+          <li>treinamentos</li>
           <li>dashboard</li>
         </ul>
         <span>7700123456</span>
-      </div>
+      </header>
     );
   }
 }
