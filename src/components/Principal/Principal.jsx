@@ -10,11 +10,21 @@ class Principal extends Component {
       showTreinamento: false
     }
   }
+
+  _buscarTreinamentoClicado(id){
+    console.log('bar' + id)
+    
+  }
+
   render() {
     return (
       <main id="principal">
-        <ListaDeTreinamentos />
-        <Treinamento show={ this.state.showTreinamento } />
+        <ListaDeTreinamentos 
+          treinamentos={[{id: 123, nome: "Testes de Unidade!"}, { id: 234, nome: "Cypress"}]}
+          informarPrincipalCliqueTreinamentoPreview={this._buscarTreinamentoClicado.bind(this)}/>
+        <Treinamento 
+          show={ this.state.showTreinamento } 
+          url={'foo'} />
       </main>
     );
   }
