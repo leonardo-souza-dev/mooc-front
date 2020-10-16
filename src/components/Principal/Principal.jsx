@@ -7,24 +7,38 @@ class Principal extends Component {
   constructor(){
     super();
     this.state = {
-      showTreinamento: false
+      showTreinamento: false,
+      dados: [],
+      idTreinamento: 0
     }
   }
 
-  _buscarTreinamentoClicado(id){
-    console.log('bar' + id)
-    
+  componentDidMount(){
+    const dados = [{id: 1, nome: "Testes de Unidade!"}, { id: 2, nome: "Cypress"}]
+    this.setState({...this.state, dados})
+  }
+
+  _buscarTreinamentoClicado(idTreinamento){
+    console.log(idTreinamento)
+    this.setState({...this.state, idTreinamento})
+    this._toogleTreinamento()
+  }
+
+  _toogleTreinamento(){
+    const showTreinamento = !this.state.showTreinamento
+    this.setState({...this.state, showTreinamento})
   }
 
   render() {
     return (
       <main id="principal">
         <ListaDeTreinamentos 
-          treinamentos={[{id: 123, nome: "Testes de Unidade!"}, { id: 234, nome: "Cypress"}]}
+          show={!this.state.showTreinamento}
+          treinamentos={this.state.dados}
           informarPrincipalCliqueTreinamentoPreview={this._buscarTreinamentoClicado.bind(this)}/>
         <Treinamento 
           show={ this.state.showTreinamento } 
-          url={'foo'} />
+          id={this.state.idTreinamento} />
       </main>
     );
   }

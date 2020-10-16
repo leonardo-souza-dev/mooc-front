@@ -11,7 +11,6 @@ class TreinamentoPreview extends Component {
   _handlerClick(e){
     e.preventDefault()
     e.stopPropagation()
-    console.log(this.props.treinamento.id)
     this.props.informarListaTreinamentosClique(this.props.treinamento.id)
   }
 

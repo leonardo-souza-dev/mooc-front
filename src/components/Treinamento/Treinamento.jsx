@@ -12,6 +12,25 @@ class Treinamento extends Component {
   //   xhr.send();
   // }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      treinamento: {},
+    };
+  }
+
+  componentDidMount() {
+    const treinamento = {
+      id: 1,
+      nome: "Testes de Unidade!",
+      aulas: [
+        { naula: 1, videourl: "https://www.w3schools.com/tags/movie.mp4" },
+        { naula: 2, videourl: "https://www.w3schools.com/tags/movie.mp4" },
+      ],
+    };
+    this.setState({ ...this.state, treinamento });
+  }
+
   render() {
     return (
       <section id="treinamento" style={this.props.show ? show : hide}>
@@ -26,10 +45,13 @@ class Treinamento extends Component {
           </ul>
         </div>
         <div>
-        <video width="640" height="480" controls>
-          <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          <video width="640" height="480" controls>
+            <source
+              src="https://www.w3schools.com/tags/movie.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </section>
     );
@@ -37,10 +59,10 @@ class Treinamento extends Component {
 }
 
 const show = {
-  display: "block"
-}
+  display: "block",
+};
 const hide = {
-  display: "none"
-}
+  display: "none",
+};
 
 export default Treinamento;
