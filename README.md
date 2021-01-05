@@ -1,3 +1,3 @@
-# mooc-front
+# mooc (massive online open course)
 
 * react
